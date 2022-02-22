@@ -1,0 +1,23 @@
+{
+  "name": "social-media-api",
+  "version": "1.0.0",
+  "description": "backend api for a social media app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collin-beisel-tm/social-media-api.git"
+  },
+  "author": "Collin Beisel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collin-beisel-tm/social-media-api/issues"
+  },
+  "homepage": "https://github.com/collin-beisel-tm/social-media-api#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
+  }
+}
