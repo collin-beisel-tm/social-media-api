@@ -7,10 +7,6 @@ const userController = {
     //GET all users
     getAllUsers(req,res) {
         User.find({})
-        .populate({
-            path: 'thoughts',
-            select: '-__V'
-        })
         .select('-__V')
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -33,7 +29,7 @@ const userController = {
             .select('-__V')
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: "No user founder with this id!"});
+                    res.status(404).json({ message: "No user found with this id!"});
                     return;
                 }
                 res.json(dbUserData);
