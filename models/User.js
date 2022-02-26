@@ -27,6 +27,7 @@ const UserSchema = new Schema(
                 ref: 'Thought'
             }
         ],
+        //self reference user model
         friends: [
             {
                 type: Schema.Types.ObjectId,
