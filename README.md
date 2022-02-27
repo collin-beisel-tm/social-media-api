@@ -19,7 +19,8 @@
 
 ## Links
  - Github Repo: https://github.com/collin-beisel-tm/social-media-api
- - Video Demo:
+ - Video Demo Pt.1: https://drive.google.com/file/d/17OADTbGVYauUR_c_40xm_-dn_luCgtax/view
+ - Video Demo Pt.2: https://drive.google.com/file/d/1XN4mF0joExGtyIuq2VBdiKGrXUs6pKFM/view
 ## App Description
 
 Social Media API is a set of api endpoints that you can use as the backend for your social media application. It uses mongoDb and Mongoose and would allow your app to create new users, associate friends, create new posts, and comments on those posts.
