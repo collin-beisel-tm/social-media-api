@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const {User, Thought} = require('../models');
 
 const userController = {
@@ -62,25 +61,22 @@ const userController = {
 
     //DELETE user by ID.... bonus delete associated thoughts too
     deleteUser({ params }, res) {
-        Thought.deleteMany({ userId: params.id })
-        .then(() => {
-            User.findByIdAndDelete({ _id: params.id })
-            .then(dbUserData => {
-                if(!dbUserData) {
-                    res.status(404).json({ message: "No user found with this ID!"});
-                    return;
-                }
-                res.json(dbUserData);
-            });
+        User.findByIdAndDelete({ _id: params.id })
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: "No user found with this ID!"});
+                return;
+            }
+            res.json(dbUserData)
         })
-        .catch(err => res.json(err));
+        .catch((err) => res.json(err));
     },
 
 //  /api/users/:userId/friends/:friendId
 
     // POST a new friend to a users friend list
     createFriend({ params}, res) {
-        User.findOneAndUpdate({ _id: params.userId }, { $push: { friends: params.friendId }}, {new: true})
+        User.findOneAndUpdate({ _id: params.id }, { $push: { friends: params.friendId }}, {new: true})
         .then(dbUserData => {
             if(!dbUserData) {
                 res.status(404).json({ message: "No User found with this ID!"});
@@ -93,7 +89,7 @@ const userController = {
     
     // DELETE a friend form a users friend list
     deleteFriend({ params }, res) {
-        User.findOneAndUpdate({ _id: params.userId }, { $pull: { friends: params.friendId }}, { new: true })
+        User.findOneAndUpdate({ _id: params.id }, { $pull: { friends: params.friendId }}, { new: true })
         .then(dbUserData => {
             if(!dbUserData) {
                 res.status(404).json({ message: "No friend found with this ID!"});
